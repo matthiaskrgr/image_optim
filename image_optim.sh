@@ -112,8 +112,8 @@ png_optimize_all()
 			print "a run optimizing pngs took $TD"
 		done
 		git_commit
-		png_optimize_all
 		filelist=`git log -1 --stat --pretty="%b" | sed '$d' | awk '{print $1}'`
+		png_optimize_all
 	fi
 }
 

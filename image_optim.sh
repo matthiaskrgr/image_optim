@@ -55,9 +55,16 @@ make_sure_we_are_safe()
 
 git_commit()
 {
+status=`git status --porcelain`
+if [ ! -z "${status}" ] ; then
 	date=`date`
 	git status
 	git commit -a -m "image_optim $date"
+else # no changes
+	timeendglobal
+	echo "Script terminated successfully."
+	exit
+fi
 
 }
 

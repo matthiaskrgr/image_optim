@@ -63,6 +63,7 @@ if [ ! -z "${status}" ] ; then
 else # no changes
 	timeendglobal
 	echo "Script terminated successfully."
+	echo "Everything optimized."
 	exit
 fi
 

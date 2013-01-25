@@ -60,6 +60,7 @@ if [ ! -z "${status}" ] ; then
 	date=`date`
 	git status
 	git commit -a -m "image_optim $date"
+	cd "$(git rev-parse --show-toplevel)"
 else # no changes
 	timeendglobal
 	echo "Script terminated successfully."

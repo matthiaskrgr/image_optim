@@ -74,7 +74,7 @@ jpeg_remove_comment_and_exiv()
 {
 	echo "Removing comments and exiv data from jpegs."
 	timestart
-	git ls-files | grep -e "\.jpg$" -e "\.jpeg" | xargs -P ${cpucores} -n 1 jpegoptim --strip-all >> /tmp/image_optim_jpeg.log
+	git ls-files ./ | grep -e "\.jpg$" -e "\.jpeg" | xargs -P ${cpucores} -n 1 jpegoptim --strip-all >> /tmp/image_optim_jpeg.log
 	timeend
 	echo "$TD"
 }

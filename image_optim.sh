@@ -121,6 +121,8 @@ png_optimize_all()
 		git_commit
 		filelist=`git log -1 --stat --pretty="%b" | sed '$d' | awk '{print $1}'`
 		png_optimize_all
+	else
+		echo "No pngs to optimize were found"
 	fi
 }
 

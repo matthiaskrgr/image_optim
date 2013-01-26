@@ -83,7 +83,8 @@ jpeg_remove_comment_and_exiv()
 
 
 if [ "`git log -1 --pretty="%B" | awk '{print $1}'| sed '$d'`" == "image_optim" ] ; then
-	filelist=`git log -1 --stat --pretty="%b" | sed '$d' | awk '{print $1}'`
+	filelist=`git log -1 --stat --pretty="%b" | sed '$d' | awk '{print $1}' | grep "\.png$"`
+	cd "$(git rev-parse --show-toplevel)"
 else
 	filelist=`git ls-files ./ | grep "\.png$"`
 fi
@@ -121,7 +122,7 @@ png_optimize_all()
 			echo "a run optimizing pngs took $TD"
 		done
 		git_commit
-		filelist=`git log -1 --stat --pretty="%b" | sed '$d' | awk '{print $1}'`
+		filelist=`git log -1 --stat --pretty="%b" | sed '$d' | awk '{print $1}' | grep "\.png$"`
 		png_optimize_all
 	else
 		echo "No pngs to optimize were found"
